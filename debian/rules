@@ -1,0 +1,39 @@
+#!/usr/bin/make -f
+
+package = base-files
+docdir = debian/base-files/usr/share/doc/$(package)
+
+VENDORFILE = ubuntu
+
+%:
+	dh $@ --with autoreconf
+
+override_dh_installdocs:
+	dh_installdocs
+	ln -s README $(docdir)/FAQ
+
+override_dh_install:
+	dh_install
+	install -d debian/base-files/DEBIAN debian/base-files/etc/dpkg/origins
+	install -p -m 644 origins/* debian/base-files/etc/dpkg/origins
+	cd debian/base-files && install -d usr/share/$(package)
+	sh debian/check-etc-profile-md5sum
+	sed -e "s/#VENDORFILE#/$(VENDORFILE)/g" debian/postinst.in \
+		> debian/base-files/DEBIAN/postinst
+	chmod 755 debian/base-files/DEBIAN/postinst
+	install -p -m 755 debian/preinst debian/base-files/DEBIAN/preinst
+	cd debian/base-files && install -d `cat ../directory-list`
+	install -p -m 644 share/* debian/base-files/usr/share/base-files
+	install -p -m 644 licenses/* debian/base-files/usr/share/common-licenses
+	install -p -m 644 etc/* debian/base-files/etc
+	install -p -m 755 debian/update-motd.d/* debian/base-files/etc/update-motd.d
+ifeq ($(DEB_HOST_GNU_SYSTEM),gnu)
+	rmdir debian/base-files/sys
+endif
+	chown -R root:root debian/base-files
+	cd debian/base-files && chown root:staff   var/local
+	cd debian/base-files && chmod 755  `find . -type d`
+	cd debian/base-files && chmod 1777 `cat ../1777-dirs`
+	cd debian/base-files && chmod 2775 `cat ../2775-dirs`
+	cd debian/base-files && chmod 700 root
+
