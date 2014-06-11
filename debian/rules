@@ -10,7 +10,7 @@ VENDORFILE = ubuntu
 
 override_dh_clean:
 	dh_clean
-	rm debian/postinst
+	rm -f debian/postinst
 
 override_dh_installdocs:
 	dh_installdocs
