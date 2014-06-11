@@ -3,9 +3,13 @@ AC_INIT([eos-base-files], [1.0.0], [cosimo@endlessm.com], [base-files], [http://
 AC_CONFIG_HEADER([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
-ENDLESS_PLATFORM=2
-ENDLESS_MINOR=0
-ENDLESS_MICRO=0
+m4_define(endless_platform, 2)
+m4_define(endless_minor, 0)
+m4_define(endless_micro, 0)
+
+ENDLESS_PLATFORM=endless_platform
+ENDLESS_MINOR=endless_minor
+ENDLESS_MICRO=endless_micro
 
 OS_NAME="Endless"
 OS_ID="endless"
