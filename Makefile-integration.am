@@ -15,7 +15,11 @@
 # Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 # Boston, MA 02111-1307, USA.
 
-BUILT_SOURCES += os-release lsb-release issue issue.net
+BUILT_SOURCES += \
+	os-release \
+	lsb-release \
+	issue \
+	issue.net
 
 INTEGRATION_SUBS =  -e "s|@OS_NAME\@|$(OS_NAME)|" \
 	-e "s|@OS_ID\@|$(OS_ID)|" \
@@ -35,9 +39,20 @@ issue: $(srcdir)/src/issue.in Makefile
 issue.net: $(srcdir)/src/issue.net.in Makefile
 	sed $(INTEGRATION_SUBS) < $< > $@.tmp && mv $@.tmp $@
 
-INSTALL_DATA_HOOKS += integration-install-data-hook
-integration-install-data-hook: os-release lsb-release issue issue.net
-	install -D os-release $(DESTDIR)$(sysconfdir)/os-release
-	install -D lsb-release $(DESTDIR)$(sysconfdir)/lsb-release
-	install -D issue $(DESTDIR)$(sysconfdir)/issue
-	install -D issue.net $(DESTDIR)$(sysconfdir)/issue.net
+sysconf_DATA = \
+	os-release \
+	lsb-release \
+	issue \
+	issue.net
+
+CLEANFILES += \
+	os-release \
+	lsb-release \
+	issue \
+	issue.net
+
+EXTRA_DIST += \
+	$(srcdir)/src/os-release.in \
+	$(srcdir)/src/lsb-release.in \
+	$(srcdir)/src/issue.in \
+	$(srcdir)/src/issue.net.in

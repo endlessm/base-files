@@ -17,20 +17,7 @@
 
 NULL = 
 BUILT_SOURCES =
-MANPAGES =
 CLEANFILES =
 EXTRA_DIST =
-bin_PROGRAMS =
-sbin_PROGRAMS =
-bin_SCRIPTS =
-libexec_PROGRAMS =
-noinst_LTLIBRARIES =
-noinst_PROGRAMS =
-privlibdir = $(pkglibdir)
-privlib_LTLIBRARIES =
-INSTALL_DATA_HOOKS =
 
 include Makefile-integration.am
-
-install-data-hook: $(INSTALL_DATA_HOOKS)
-
