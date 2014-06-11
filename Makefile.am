@@ -22,6 +22,12 @@ EXTRA_DIST =
 
 include Makefile-integration.am
 
+EXTRA_DIST += \
+	etc \
+	licenses \
+	origins \
+	share
+
 MAINTAINERCLEANFILES = \
 	$(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL) \
 	$(GITIGNORE_MAINTAINERCLEANFILES_MAKEFILE_IN) \
