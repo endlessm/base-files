@@ -5,7 +5,7 @@ AC_CONFIG_MACRO_DIR([m4])
 
 m4_define(endless_platform, 2)
 m4_define(endless_minor, 1)
-m4_define(endless_micro, 1)
+m4_define(endless_micro, 2)
 
 ENDLESS_PLATFORM=endless_platform
 ENDLESS_MINOR=endless_minor
