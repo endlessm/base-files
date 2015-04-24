@@ -56,6 +56,3 @@ EXTRA_DIST += \
 	$(srcdir)/src/lsb-release.in \
 	$(srcdir)/src/issue.in \
 	$(srcdir)/src/issue.net.in
-
-xsessionddir = $(sysconfdir)/X11/Xsession.d
-dist_xsessiond_DATA = Xsession.d/65gstreamer-plugin-registry
