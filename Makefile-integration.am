@@ -56,3 +56,6 @@ EXTRA_DIST += \
 	$(srcdir)/src/lsb-release.in \
 	$(srcdir)/src/issue.in \
 	$(srcdir)/src/issue.net.in
+
+ldsoconfddir = $(sysconfdir)/ld.so.conf.d
+dist_ldsoconfd_DATA = ld.so.conf.d/50-codecs.conf
