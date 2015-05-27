@@ -105,6 +105,13 @@ if [ "$1" = "configure" ] && [ "$2" = "" ]; then
   if [ ! -L /etc/mtab ]; then
     ln -sf /proc/self/mounts /etc/mtab
   fi
+
+  # Try to support merged /usr.
+  for dir in /bin /lib /sbin; do
+    if [ ! -L $dir ] && [ ! -d $dir ]; then
+      ln -s usr$dir $dir
+    fi
+  done
 fi
 
 if [ ! -d /var/lib/dpkg ]; then
