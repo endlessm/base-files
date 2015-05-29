@@ -1,4 +1,3 @@
-bin
 boot
 dev
 etc
@@ -7,12 +6,10 @@ etc/profile.d
 etc/skel
 etc/update-motd.d
 home
-lib
 mnt
 proc
 root
 run
-sbin
 sys
 tmp
 usr
