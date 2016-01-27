@@ -23,6 +23,7 @@ BUILT_SOURCES += \
 
 INTEGRATION_SUBS =  -e "s|@OS_NAME\@|$(OS_NAME)|" \
 	-e "s|@OS_ID\@|$(OS_ID)|" \
+	-e "s|@OS_CODENAME\@|$(OS_CODENAME)|" \
 	-e "s|@OS_VERSION\@|$(OS_VERSION)|" \
 	-e "s|@OS_PRETTY_NAME\@|$(OS_PRETTY_NAME)|" \
 	-e "s|@PACKAGE_URL\@|$(PACKAGE_URL)|"
