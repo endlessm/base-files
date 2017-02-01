@@ -3,7 +3,7 @@
 package = base-files
 docdir = debian/base-files/usr/share/doc/$(package)
 
-VENDORFILE = ubuntu
+VENDORFILE = endless
 
 %:
 	dh $@ --with autoreconf
