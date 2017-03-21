@@ -4,7 +4,7 @@ AC_CONFIG_HEADER([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
 m4_define(endless_platform, 3)
-m4_define(endless_minor, 1)
+m4_define(endless_minor, 2)
 m4_define(endless_micro, 0)
 
 ENDLESS_PLATFORM=endless_platform
