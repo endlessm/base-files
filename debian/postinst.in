@@ -57,6 +57,7 @@ if [ "$1" = "configure" ] && [ "$2" = "" ]; then
   install_from_default dot.bashrc    /root/.bashrc
   install_from_default profile       /etc/profile
   install_from_default motd          /etc/motd
+  install_from_default networks      /etc/networks
   install_directory mnt       755 root
   install_directory srv       755 root
   install_directory opt       755 root
