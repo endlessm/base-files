@@ -101,6 +101,10 @@ if [ "$1" = "configure" ] && [ "$2" = "" ]; then
   fi
   chown root:utmp /var/run/utmp
   chmod 664 /var/run/utmp
+
+  if [ ! -L /etc/mtab ]; then
+    ln -sf /proc/self/mounts /etc/mtab
+  fi
 fi
 
 if [ ! -d /var/lib/dpkg ]; then
