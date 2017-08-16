@@ -4,6 +4,7 @@ etc
 etc/default
 etc/dpkg/origins
 etc/profile.d
+etc/ld.so.conf.d
 etc/skel
 etc/update-motd.d
 home
